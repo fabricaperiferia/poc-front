@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 })
 
 export class LoginPage {
+
+  urlFoundImg: String = 'assets/img/fondo-login.png';
     constructor(){
         
     }
