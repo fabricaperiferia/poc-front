@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { User } from '../../models/user'
-
+import {HomePage} from '../../pages/home/home.page';
 @Component({
   selector: 'app-form-login',
   templateUrl: 'form-login.component.html',
@@ -13,11 +13,11 @@ export class FormLoginComponent {
     userName:"",
     password:""
   };
-  constructor( ) {
+  constructor( public router:Router) {
 
   }
 
   loginApp() {
-  console.log(this.user)
+    this.router.navigateByUrl(`/home`);
   }
 }

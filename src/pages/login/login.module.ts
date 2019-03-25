@@ -15,4 +15,4 @@ import {FormLoginComponent} from '../../component/form-login/form-login.componen
  ],
   declarations: [LoginPage,FormLoginComponent]
 })
-export class TabsPageModule {}
+export class LoginPageModule {}
