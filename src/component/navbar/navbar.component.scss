@@ -1,0 +1,89 @@
+.navbar-initial{
+    height: 16%;
+    width: 100%;
+    display:flex;
+}
+.rigth-content{
+    width: 13%;
+}
+.log-image{
+    margin: 0 10%;
+}
+.item-navigation{
+    display: flex;
+    margin: 2%  0 0 19%; 
+}
+.list-element{
+    margin: 0 10% 0 0;
+box-shadow: 5px 1px 34px -9px rgba(0,0,0,0.75);
+padding: 0;
+float: right;
+white-space: nowrap;
+z-index: 3;
+background-color: white;
+position: sticky;
+}
+.navigation{
+    width:75%;
+    height: 100%;
+}
+.profile-image{
+    width: 40%;
+    margin:16% 10px;
+}
+.arrow-left ,.arrow-button{
+    width: 11%;
+}
+.center{
+margin: auto 0;
+}
+.dropdown-profile{
+    width: 10%;
+    height: 100%;
+}
+
+.tab, .tabs{
+    display: inline-block;
+    list-style: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tab  {
+    width: 18%;
+    padding: 10px 0;
+    text-transform: uppercase;
+    display: table;
+    vertical-align: middle;
+    float: left;
+    text-align: center;
+    font-size: .9rem;
+    color:black;
+    font-weight: 500;
+	letter-spacing: 1.8px;
+    transition: 0.1s all linear;
+    text-decoration: none;
+    position: relative;
+    border: 0;
+    & .tabs{
+        width: 100%;
+        display: table;
+        vertical-align: middle;
+        float: left;
+        color:black;
+        text-decoration: none;
+        position: relative;
+    }
+}
+
+.tab:hover,.tabs :hover {
+    color: #e82050;
+    box-shadow: 0 -5px #e82050 inset;
+    transition: 0.1s all linear;
+      border: 0;
+}
+.name-user{
+    white-space: pre;
+    padding: 20% 0 0;
+}
