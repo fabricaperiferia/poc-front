@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import {HomePage} from '../../pages/home/home.page';
 @Component({
   selector: 'app-form-login',
   templateUrl: 'form-login.component.html',
