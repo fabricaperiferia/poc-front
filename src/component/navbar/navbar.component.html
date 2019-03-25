@@ -1,9 +1,9 @@
-<nav class="navbar-initial">                      
+<!-- <nav class="navbar-initial">                      
   <div class="rigth-content center">
   </div>
   <div class="navigation center">
       <ul class="item-navigation">
-        <li class='tab' ><a class="tabs" routerLink="/">Inicio</a></li>
+        <li class='tab' ><a class="tabs" routerLink="/home" [routerLinkActive]="'is-active'">Inicio</a></li>
         <li class='tab' ><a class="tabs" routerLink="/">Catalogo</a></li>
        <li class='tab' ><a class="tabs" routerLink="/">Pedidos</a></li>
        </ul>
@@ -12,4 +12,32 @@
 <p class="tab name-user"><strong>UserName</strong></p>
 </div>
  
-</nav>
+</nav> -->
+
+<ion-tabs>
+
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="schedule">
+        <ion-icon name="calendar"></ion-icon>
+        <ion-label>Schedule</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="speakers">
+        <ion-icon name="contacts"></ion-icon>
+        <ion-label>Speakers</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="map">
+        <ion-icon name="map"></ion-icon>
+        <ion-label>Map</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="about">
+        <ion-icon name="information-circle"></ion-icon>
+        <ion-label>About</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  
+  </ion-tabs>
+  
+  <ion-content></ion-content>
