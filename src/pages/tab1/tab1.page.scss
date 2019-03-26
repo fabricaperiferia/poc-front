@@ -1,4 +1,32 @@
-.welcome-card ion-img {
-  max-height: 35vh;
-  overflow: hidden;
+
+.father-card{
+  display: flex;
+  height: 88%;
+  justify-content: center;
+}
+.catalogue-image{
+  background-image: url(/assets/img/catalogo.jpg);
+}
+
+.build-image{
+  background-image: url(/assets/img/carrito.jpg);
+}
+.content{
+  width: 30%;
+  height: 70%;
+  background-size: cover;
+  border-radius: 7%;
+  filter: opacity(65%) saturate(90%);
+  margin:5% 4%;
+}
+.text {
+  color: white;
+  font-size: 5em;
+  font-weight: 900;
+}
+//sobrescribe el font size de la propiedad text 
+.init-text{
+  text-align: center;
+  color: #002f5f;
+  font-size: 2.7em;
 }

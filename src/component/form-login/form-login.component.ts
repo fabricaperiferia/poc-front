@@ -17,6 +17,6 @@ export class FormLoginComponent {
   }
 
   loginApp() {
-    this.router.navigateByUrl(`/home`);
+    this.router.navigateByUrl(`home`);
   }
 }
