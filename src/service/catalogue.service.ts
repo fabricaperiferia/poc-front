@@ -14,11 +14,7 @@ export class CatalogueService {
   ) {}
 
   findAll(): Promise<any> {
-    return this._http.get('http://localhost:3000/catalogue').toPromise().then(response => {
-      console.log(response)
-    }).catch(err => {
-      console.log(err)
-    })
+    return this._http.get('http://localhost:3000/catalogue').toPromise()
   }
 
 
