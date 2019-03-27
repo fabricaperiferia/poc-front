@@ -16,26 +16,25 @@
     margin-top: 19%;
     color: white;
   }
-  .button-form {
-    background-color: #e4214c;
-    width: 60%;
-    color: white;
-    margin: 0 20%;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-    padding: 14px 30px;
-    transition: 0.3s color linear, 0.3s background linear, 0.3s border linear;
-    line-height: 16px;
-  }
   
-  .button-form:hover, .button-form:global(.active) {
-    background-color: #e21c487a;
-    border: 1px solid #e21c487a;
-    color: white;
-  }
-  
-  
-  
+  //Button 
+.button-form {
+  background-color: #e4214c;
+  width: 60%;
+  color: white;
+  margin: 0 20%;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  padding: 14px 30px;
+  transition: 0.3s color linear, 0.3s background linear, 0.3s border linear;
+  line-height: 16px;
+}
+
+.button-form:hover, .button-form:global(.active) {
+  background-color: #e21c487a;
+  border: 1px solid #e21c487a;
+  color: white;
+}

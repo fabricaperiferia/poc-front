@@ -10,7 +10,6 @@ import { CatalogueService } from '../../service/catalogue.service'
 export class Tab2Page {
     catalogueList: Array<any> = [];
     searchTerm:String;
-    valueRange:number;
     constructor(public catServ: CatalogueService) {
 
     }
