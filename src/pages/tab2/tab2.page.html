@@ -1,8 +1,7 @@
 <ion-content>
   <h1 class="init-text">- Catálogo -</h1>
- <ion-searchbar class="search-bar" 
- placeholder="Buscar producto (Nombre,categoria,precio,presentación)"
- [(ngModel)]="searchTerm"   showCancelButton="true" animated="true" (ionChange)="filterItems()"></ion-searchbar>
+  <ion-searchbar class="search-bar" placeholder="Buscar producto (Nombre,categoria,precio,presentación)" [(ngModel)]="searchTerm"
+    showCancelButton="true" animated="true" (ionChange)="filterItems()"></ion-searchbar>
   <div class="content-catalogue">
     <ion-card class="card" *ngFor="let catalogue of catalogueList">
       <ion-card-header>
@@ -14,8 +13,15 @@
       <ion-card-content>
         <p><strong>Categoria:</strong>{{catalogue.categoria}}</p>
         <p><strong>Precio:</strong>${{catalogue.precio}}</p>
-       <p><strong>Presentación:</strong>{{catalogue.presentacion}}</p>
-      </ion-card-content>
+        <p><strong>Presentación:</strong>{{catalogue.presentacion}}</p>
+        <ion-item>
+          <ion-range min="0" max="20" pin="true" [(ngModel)]="catalogue.valueRange" color="secondary">
+            <ion-label slot="start">0</ion-label>
+            <ion-label slot="end">20</ion-label>
+          </ion-range>
+        </ion-item>
+        <!-- <button color="light" (click)="addVal('valueRange')"> -->
+       </ion-card-content>
     </ion-card>
   </div>
 </ion-content>

@@ -10,9 +10,14 @@ import { CatalogueService } from '../../service/catalogue.service'
 export class Tab2Page {
     catalogueList: Array<any> = [];
     searchTerm:String;
+    valueRange:number;
     constructor(public catServ: CatalogueService) {
 
     }
+
+/*
+ Se listá los valores iniciales del catalogo
+*/
     ngOnInit() {
         this.catServ.findAll().then(response => {
             this.catalogueList = response.product
@@ -21,6 +26,9 @@ export class Tab2Page {
         })
     }
 
+    /*
+ Filtra por valores del item
+*/
     filterItems(){
         console.log(this.searchTerm)
         this.catServ.findFilter(this.searchTerm).then(response => {
@@ -29,6 +37,10 @@ export class Tab2Page {
         }).catch(err => {
             console.log(err)
         })
+    }
+
+    addVal(value){
+console.log(value)
     }
 
 
