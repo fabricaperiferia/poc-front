@@ -17,5 +17,8 @@ export class CatalogueService {
     return this._http.get('http://localhost:3000/catalogue').toPromise()
   }
 
+  findFilter(value:any): Promise<any> {
+    return this._http.get(`http://localhost:3000/catalogue/${value}`).toPromise()
+  }
 
 }
