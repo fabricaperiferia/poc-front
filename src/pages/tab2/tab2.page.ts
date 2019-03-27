@@ -38,8 +38,8 @@ export class Tab2Page {
         })
     }
 
-    addVal(value){
-console.log(value)
+    addVal(value,second){
+console.log(value,second)
     }
 
 
