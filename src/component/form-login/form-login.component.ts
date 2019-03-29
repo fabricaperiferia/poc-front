@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { LoginService } from '../../service/login.service'
-import { LoadingController,AlertController } from '@ionic/angular';
+import { LoadingController, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-form-login',
@@ -15,10 +15,10 @@ export class FormLoginComponent {
     userName: "",
     password: ""
   };
-  constructor(public router: Router, 
-              public loginSrv: LoginService,
-               public loadingCtrl: LoadingController,
-               public alertCtrl:AlertController) {
+  constructor(public router: Router,
+    public loginSrv: LoginService,
+    public loadingCtrl: LoadingController,
+    public alertCtrl: AlertController) {
   }
 
   async loginApp() {
@@ -32,11 +32,12 @@ export class FormLoginComponent {
       message: 'Ingresa y disfruta de nuestro sitio ',
       cssClass: 'alert',
       buttons: [
-        {text:'Continuar',
-        handler: () => {
-          this.router.navigateByUrl(`o`);
+        {
+          text: 'Continuar',
+          handler: () => {
+            this.router.navigateByUrl(`o`);
+          }
         }
-      }
       ]
     });
 
@@ -45,18 +46,21 @@ export class FormLoginComponent {
       message: 'Agrega un usuario o contraseña valida ',
       cssClass: 'alert',
       buttons: [
-        {text:'Continuar',
-        handler: () => {
+        {
+          text: 'Continuar',
+          handler: () => {
+          }
         }
-      }
       ]
     });
     loading.present();
-    this.loginSrv.login().then(response => {
+    this.loginSrv.login(this.user).then(response => {
       loading.dismiss();
       alert.present();
     }).catch(err => {
-     alertError.present();
+      console.log(err)
+      loading.dismiss();
+      alertError.present();
     })
   }
 }

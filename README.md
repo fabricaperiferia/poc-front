@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # poc-front
 
 # Desplegando el proyecto  Modulo Administrador
@@ -22,3 +23,6 @@ ionic serve
 
 5. __Ir al navegador correr en puerto__: localhost:8100
 
+=======
+# poc-front
+>>>>>>> e5cddb5ff4e5a8025b9a50a1842bcea9bf54a4b3
