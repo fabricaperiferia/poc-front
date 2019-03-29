@@ -51,3 +51,18 @@ $buttonAlertColor: #488aff;
         opacity: .7 !important;
     }
 }
+
+
+//Alert 
+.alert {
+    text-align: center;
+
+    .alert-title {
+     font-size: 2.6em;
+     font-weight: 900;
+     text-align: center;
+ }
+ .alert-button-group{
+ border-top: 2px solid #0d3081;
+ }
+}
