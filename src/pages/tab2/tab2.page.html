@@ -5,9 +5,9 @@
   <div class="content-catalogue">
     <ion-card class="card" *ngFor="let catalogue of catalogueList">
       <ion-card-header>
-        <img src="../../assets/img/agua.jpeg" />
-        <ion-card-subtitle>{{catalogue.nombre}}</ion-card-subtitle>
-        <ion-card-title>{{catalogue.nombre}}</ion-card-title>
+        <img src={{catalogue.imagen}} />
+        <ion-card-subtitle class="title">{{catalogue.nombre}}</ion-card-subtitle>
+        <ion-card-title class="title">{{catalogue.nombre}}</ion-card-title>
       </ion-card-header>
 
       <ion-card-content>

@@ -103,3 +103,17 @@
 	}
 	
 }
+.title {
+    margin: 4% 0;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.title:hover {
+    width: auto;
+    white-space: initial;
+    overflow: visible;
+    cursor: pointer;
+}
