@@ -39,12 +39,24 @@ export class FormLoginComponent {
       }
       ]
     });
+
+    const alertError = await this.alertCtrl.create({
+      header: 'Usuario o contraseña invalido ',
+      message: 'Agrega un usuario o contraseña valida ',
+      cssClass: 'alert',
+      buttons: [
+        {text:'Continuar',
+        handler: () => {
+        }
+      }
+      ]
+    });
     loading.present();
     this.loginSrv.login().then(response => {
       loading.dismiss();
       alert.present();
     }).catch(err => {
-      console.log(err)
+     alertError.present();
     })
   }
 }
