@@ -25,3 +25,19 @@
 .login-form {
     width: 50%;
 }
+
+
+//Media
+@media screen and (max-width:740px) {
+    .login-content {
+        display: none;
+    }
+
+    .login-form {
+        width: 100%;
+    }
+
+    .wrapper {
+        background-color: #0a4986;
+    }
+}

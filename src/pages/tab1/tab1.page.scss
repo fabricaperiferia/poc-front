@@ -31,3 +31,19 @@
   font-size: 2.7em;
   font-weight: 900;
 }
+
+//Media
+@media screen and (max-width:740px) {
+  .father-card{
+    flex-direction: column
+  }
+  .content{
+    width: 80%;
+    height: 70%;
+    border-radius: 2%;
+    margin: 6% auto;
+  }
+  .text{
+    font-size: 4.4em;
+  }
+  }

@@ -117,3 +117,18 @@
     overflow: visible;
     cursor: pointer;
 }
+
+//Media
+@media screen and (max-width:740px) {
+	.content-catalogue{
+	  flex-direction: column
+	}
+	.card{
+	  width: 100%;
+	  border-radius: 2%;
+	  margin: 4% auto;
+	}
+	.search-bar{
+		width: 80%;
+	}
+	}
