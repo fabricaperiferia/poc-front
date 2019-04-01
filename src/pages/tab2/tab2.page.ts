@@ -10,6 +10,8 @@ import { LoadingController } from '@ionic/angular';
 export class Tab2Page {
     catalogueList: Array<any> = [];
     searchTerm: String;
+    localStorageValue:Array<any> = [];
+
     constructor(public catServ: CatalogueService, public loadingCtrl: LoadingController) {
 
     }
@@ -27,7 +29,7 @@ export class Tab2Page {
         this.catServ.findAll().then(response => {
             loading.dismiss();
             this.catalogueList = response.product
-       }).catch(err => {
+        }).catch(err => {
             console.log(err)
         })
     }
@@ -44,8 +46,12 @@ export class Tab2Page {
     }
 
     addVal(value, second) {
-        console.log(value, second)
+        console.log(this.localStorageValue)
+        this.localStorageValue.push({
+            infoItem: value,
+            totalItems: second === undefined ? 1 : second,
+            totalValueItems: second === undefined ? value.precio : value.precio * second
+        })
+        localStorage.setItem("catalogueItems", btoa(JSON.stringify(this.localStorageValue)))
     }
-
-
 }

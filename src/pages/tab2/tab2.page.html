@@ -15,8 +15,8 @@
         <p><strong>Precio:</strong>${{catalogue.precio}}</p>
         <p><strong>Presentación:</strong>{{catalogue.presentacion}}</p>
         <ion-item>
-          <ion-range min="0" max="20" pin="true" [(ngModel)]="catalogue.valueRange" color="secondary">
-            <ion-label slot="start">0</ion-label>
+          <ion-range min="1" max="20" pin="true" value="1" [(ngModel)]="catalogue.valueRange" color="secondary">
+            <ion-label slot="start">1</ion-label>
             <ion-label slot="end">20</ion-label>
           </ion-range>
         </ion-item>
