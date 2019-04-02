@@ -5,26 +5,17 @@
       <ion-list-header>
           <ion-label class="init-text">Lista de productos en carrito de compra</ion-label>
         </ion-list-header>
-    <ion-item>
+    <ion-item *ngFor="let product of productList">
         <ion-avatar item-left class="avatar">
-            <img src="../../assets/img/agua.jpeg">
+            <img src="{{product.infoItem.imagen}}">
           </ion-avatar>
-          <h2>Producto</h2>
-          <p class="text">Cantidad: $23123213, Total: $4234234</p>
-    </ion-item>
-    <ion-item>
-        <ion-avatar item-left class="avatar">
-            <img src="../../assets/img/agua.jpeg">
-          </ion-avatar>
-          <h2>Producto</h2>
-          <p class="text">Cantidad: $23123213, Total: $4234234</p>
-    </ion-item>
-    <ion-item>
-        <ion-avatar item-left class="avatar">
-            <img src="../../assets/img/agua.jpeg">
-          </ion-avatar>
-          <h2>Producto</h2>
-          <p class="text">Cantidad: $23123213, Total: $4234234</p>
+          <h2 class="title">{{product.infoItem.nombre}}</h2>
+          <p class="text">Cantidad: {{product.totalItems}}</p>
+          <p class="text">Total: ${{product.totalValueItems}}</p>
+          <button class="button">
+              <ion-icon name="close-circle-outline"></ion-icon>  
+               Cancelar producto
+            </button>
     </ion-item>
   </ion-list>
 </ion-content>

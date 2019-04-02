@@ -1,5 +1,6 @@
 
 .list-md {
+    width: 60%;
     margin: 2% 20%;
 }
 
@@ -7,10 +8,47 @@
     margin: 0 0 2%;
 }
 
-.avatar{
+.avatar {
     width: 6%;
     height: 100%;
+    margin: 3%;
 }
-.text{
+
+.text {
     margin: auto;
 }
+
+.title {
+    margin: 4% 0;
+    font-size: 1.2em;
+    width: 28%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.title:hover {
+    width: auto;
+    white-space: initial;
+    overflow: visible;
+    cursor: pointer;
+}
+.button{
+    background-color: #e4214c;
+    height: 57%;
+    font-size: 0.5em;
+    color: white;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    transition: 0.3s color linear, 0.3s background linear, 0.3s border linear;
+    line-height: 16px;
+  }
+  
+  .button:hover, .button:global(.active) {
+    background-color: #e21c487a;
+    border: 1px solid #e21c487a;
+    color: white;
+  }
