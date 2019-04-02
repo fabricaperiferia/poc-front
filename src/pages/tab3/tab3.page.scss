@@ -40,7 +40,7 @@
     height: 57%;
     font-size: 1em;
 }
-.button {
+.button,.button-clip {
     background-color: #e4214c;
     color: white;
     width: 55%;
@@ -66,4 +66,7 @@
 .text-dont-product{
     color: #00000057;
     margin: auto;
+}
+.button-clip{
+    height: 50px;
 }

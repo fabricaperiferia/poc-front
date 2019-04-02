@@ -3,6 +3,10 @@
 
   <ion-list>
     <ion-list-header>
+        <button ion-button class="button-clip" (click)="add()">
+            <ion-icon name="clipboard"></ion-icon>
+           Ver pedidos
+          </button>
       <ion-label class="init-text second-text">Lista de productos en carrito de compra</ion-label>
     </ion-list-header>
     <ion-item *ngFor="let product of productList">
