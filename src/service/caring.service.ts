@@ -8,7 +8,7 @@ export class CarService {
     private _http: HttpClient
   ) {}
 
-  saveSale(): Promise<any> {
+  saveSale(Params): Promise<any> {
     return this._http.get('http://localhost:3000/catalogue').toPromise()
   }
 

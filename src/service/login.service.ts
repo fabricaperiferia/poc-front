@@ -9,19 +9,21 @@ export class LoginService {
     private _http: HttpClient
   ) { }
 
-
+   authHeaders() {
+    return {
+        Authorization: `Basic YXV0aC1jbGllbnQ6c2VjcmV0`,
+    }
+}
 
   login(user): Promise<any> {
-    console.log(user)
     var bodyFormData = new FormData();
     bodyFormData.set('grant_type', 'password');
-    bodyFormData.set('username', user.username);
+    bodyFormData.set('username', user.userName);
     bodyFormData.set('password', user.password);
     let options = {
-      headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+      headers:this.authHeaders()
     };
-
-    return this._http.post('http://localhost:8080/oauth/token', bodyFormData, options).toPromise()
+    return this._http.post('http://172.168.10.52:30144/oauth/token', bodyFormData, options).toPromise()
   }
 
 }

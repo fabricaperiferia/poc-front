@@ -56,6 +56,7 @@ export class FormLoginComponent {
     });
     loading.present();
     this.loginSrv.login(this.user).then(response => {
+      console.log(response)
       loading.dismiss();
       alert.present();
     }).catch(err => {
