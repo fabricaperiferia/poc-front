@@ -9,7 +9,7 @@ export class CarService {
   ) {}
 
   saveSale(Params): Promise<any> {
-    return this._http.get('http://localhost:3000/catalogue').toPromise()
+    return this._http.post('http://localhost:9000/orders/checkout',Params).toPromise()
   }
 
 }

@@ -16,9 +16,9 @@ export class Tab2Page {
 
     }
 
-    /*
-     Se listá los valores iniciales del catalogo
-    */
+    /**
+    @description Se listá los valores iniciales del catalogo
+    **/
     async ngOnInit() {
         const loading = await this.loadingCtrl.create({
             message: 'Cargando ...',
@@ -35,9 +35,10 @@ export class Tab2Page {
         })
     }
 
-    /*
- Filtra por valores del item
-*/
+  /**
+   * @description  Filtra por valores del item
+  */
+
     async filterItems() {
         this.catServ.findFilter(this.searchTerm).then(response => {
             this.catalogueList = response.product
@@ -46,8 +47,12 @@ export class Tab2Page {
         })
     }
 
+    /** 
+     * @param {array}value: valor que que se va agrear
+     * @param {number}second: Cantidad de veces que se desea el producto
+     * @description Se agrega valores para agregar un nuevo producto a localStorage 
+    */
     addVal(value, second) {
-        console.log(this.localStorageValue)
         this.localStorageValue.push({
             infoItem: value,
             totalItems: second === undefined ? 1 : second,

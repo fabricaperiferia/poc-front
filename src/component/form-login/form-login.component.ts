@@ -49,14 +49,13 @@ export class FormLoginComponent {
         {
           text: 'Continuar',
           handler: () => {
-            this.router.navigateByUrl(`o`);
           }
         }
       ]
     });
     loading.present();
     this.loginSrv.login(this.user).then(response => {
-      console.log(response)
+      localStorage.setItem('token',response.access_token);
       loading.dismiss();
       alert.present();
     }).catch(err => {

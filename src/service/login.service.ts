@@ -23,7 +23,7 @@ export class LoginService {
     let options = {
       headers:this.authHeaders()
     };
-    return this._http.post('http://172.168.10.52:30144/oauth/token', bodyFormData, options).toPromise()
+    return this._http.post('http://localhost:8080/oauth/token', bodyFormData, options).toPromise()
   }
 
 }

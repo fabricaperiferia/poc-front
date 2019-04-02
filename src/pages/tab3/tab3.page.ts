@@ -12,6 +12,8 @@ export class Tab3Page {
 
   productList: Array<any> = [];
 
+
+  
   /**
   @description:Constructor
   **/
@@ -19,12 +21,16 @@ export class Tab3Page {
 
   }
 
+
+
   /**
   @description: Se ejecuta cada vez que se muestra la vista. decodifica lo almacenado en localStorage
   **/
   ionViewWillEnter() {
     this.productList = JSON.parse(atob(localStorage.getItem('catalogueItems')))
   }
+
+
 
   /**
   @param {array}product producto a eliminar
@@ -34,6 +40,8 @@ export class Tab3Page {
     this.productList.splice(this.productList.indexOf(product), 1);
     localStorage.setItem("catalogueItems", btoa(JSON.stringify(this.productList)))
   }
+
+
 
   /**
   @description:Se consume el servicio quien guardara el pedido
@@ -58,6 +66,8 @@ export class Tab3Page {
       console.log(err)
     })
   }
+
+
 
   /**
   @description:Modal que lista los pedidos realizados por el usuario 
