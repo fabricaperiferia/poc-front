@@ -7,6 +7,9 @@
 .init-text {
     margin: 0 0 2%;
 }
+.second-text{
+    font-size: 2.5em !important;
+}
 
 .avatar {
     width: 6%;
@@ -33,11 +36,17 @@
     overflow: visible;
     cursor: pointer;
 }
-.button{
-    background-color: #e4214c;
+.cancel-button{
     height: 57%;
-    font-size: 0.5em;
+    font-size: 1em;
+}
+.button {
+    background-color: #e4214c;
     color: white;
+    width: 55%;
+    font-size: 1.2em;
+    height: 80%;
+    margin: auto;
     border-radius: 4px;
     font-size: 12px;
     font-weight: 400;
@@ -45,10 +54,16 @@
     text-transform: uppercase;
     transition: 0.3s color linear, 0.3s background linear, 0.3s border linear;
     line-height: 16px;
-  }
-  
-  .button:hover, .button:global(.active) {
+}
+
+.button:hover,
+.button:global(.active) {
     background-color: #e21c487a;
     border: 1px solid #e21c487a;
     color: white;
-  }
+}
+
+.text-dont-product{
+    color: #00000057;
+    margin: auto;
+}

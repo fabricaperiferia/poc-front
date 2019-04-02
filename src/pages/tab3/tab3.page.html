@@ -2,20 +2,32 @@
   <h1 class="init-text">- Carrito de compra -</h1>
 
   <ion-list>
-      <ion-list-header>
-          <ion-label class="init-text">Lista de productos en carrito de compra</ion-label>
-        </ion-list-header>
+    <ion-list-header>
+      <ion-label class="init-text second-text">Lista de productos en carrito de compra</ion-label>
+    </ion-list-header>
     <ion-item *ngFor="let product of productList">
-        <ion-avatar item-left class="avatar">
-            <img src="{{product.infoItem.imagen}}">
-          </ion-avatar>
-          <h2 class="title">{{product.infoItem.nombre}}</h2>
-          <p class="text">Cantidad: {{product.totalItems}}</p>
-          <p class="text">Total: ${{product.totalValueItems}}</p>
-          <button class="button"  (click)="deleteProduct(product)">
-              <ion-icon name="close-circle-outline"></ion-icon>  
-               Cancelar producto
-            </button>
+      <ion-avatar item-left class="avatar">
+        <img src="{{product.infoItem.imagen}}">
+      </ion-avatar>
+      <h2 class="title">{{product.infoItem.nombre}}</h2>
+      <p class="text">Cantidad: {{product.totalItems}}</p>
+      <p class="text">Total: ${{product.totalValueItems}}</p>
+      <button class="cancel-button" (click)="deleteProduct(product)">
+        <ion-icon name="close-circle-outline"></ion-icon>
+        Cancelar producto
+      </button>
+    </ion-item>
+
+    <ion-item *ngIf="productList.length !== 0">
+      <button class="button" (click)="deleteProduct(product)">
+        <ion-icon name="basket"></ion-icon>
+        Agregar pedido
+      </button>
+    </ion-item>
+    <ion-item *ngIf="productList.length === 0">
+      <h1 class="text-dont-product">
+        No tiene productos agregados al carrito
+      </h1>
     </ion-item>
   </ion-list>
 </ion-content>
