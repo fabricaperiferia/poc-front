@@ -12,7 +12,7 @@
           <h2 class="title">{{product.infoItem.nombre}}</h2>
           <p class="text">Cantidad: {{product.totalItems}}</p>
           <p class="text">Total: ${{product.totalValueItems}}</p>
-          <button class="button">
+          <button class="button"  (click)="deleteProduct(product)">
               <ion-icon name="close-circle-outline"></ion-icon>  
                Cancelar producto
             </button>

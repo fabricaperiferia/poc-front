@@ -9,9 +9,14 @@ export class Tab3Page {
 
   productList: Array<any> = [];
 
-  ionViewWillEnter(){
+  ionViewWillEnter() {
     this.productList = JSON.parse(atob(localStorage.getItem('catalogueItems')))
     console.log(this.productList)
+  }
+
+  deleteProduct(product) {
+    this.productList.splice(this.productList.indexOf(product), 1);
+    localStorage.setItem("catalogueItems", btoa(JSON.stringify(this.productList)))
   }
 
 }

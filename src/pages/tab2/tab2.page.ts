@@ -10,7 +10,7 @@ import { LoadingController } from '@ionic/angular';
 export class Tab2Page {
     catalogueList: Array<any> = [];
     searchTerm: String;
-    localStorageValue:Array<any> = [];
+    localStorageValue: Array<any> = [];
 
     constructor(public catServ: CatalogueService, public loadingCtrl: LoadingController) {
 
@@ -30,6 +30,7 @@ export class Tab2Page {
             loading.dismiss();
             this.catalogueList = response.product
         }).catch(err => {
+            loading.dismiss();
             console.log(err)
         })
     }
