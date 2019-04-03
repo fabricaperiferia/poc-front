@@ -15,7 +15,6 @@ export class ModalComponent implements OnInit {
 
   ngOnInit() {
     this.carSrv.findAll().then(response => {
-      console.log(response)
       this.productList = response.payload.Orders;
       console.log(this.productList)
   }).catch(err => {

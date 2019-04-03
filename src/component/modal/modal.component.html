@@ -1,3 +1,17 @@
 <p (click)="cancelParam()">
   modal works!
 </p>
+<h1 class="init-text">- Lista de pedidos-</h1>
+<ion-list>
+  <ion-item *ngFor="let product of productList">
+    <ion-label> Cantidad productos: {{product.detail.length}}</ion-label>
+    <ion-label class="date">Fecha: {{product.creation}}</ion-label>
+
+    <ion-label>
+      <button class="button-detail">
+        <ion-icon name="arrow-round-forward"></ion-icon>
+        Ver detalle
+      </button>
+    </ion-label>
+  </ion-item>
+</ion-list>

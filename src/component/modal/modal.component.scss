@@ -1,0 +1,28 @@
+.list-md {
+    width: 100%;
+    overflow: scroll;
+}
+.modal-wrapper{
+    border-radius: 1em;
+}
+.date {
+    width: auto;
+    white-space: initial;
+    overflow: visible;
+    cursor: pointer;
+}
+.button-detail {
+    background-color: #e4214c;
+    color: white;
+    width: 96%;
+    font-size: 1.5em;
+    height: 46px;
+    margin: auto;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    transition: 0.3s color linear, 0.3s background linear, 0.3s border linear;
+    line-height: 16px;
+}
