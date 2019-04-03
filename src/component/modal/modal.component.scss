@@ -2,15 +2,23 @@
     width: 100%;
     overflow: scroll;
 }
-.modal-wrapper{
+
+.modal-wrapper {
     border-radius: 1em;
 }
+
 .date {
     width: auto;
     white-space: initial;
     overflow: visible;
     cursor: pointer;
 }
+
+.card {
+    width: 70%;
+    border-radius: 4%;
+}
+
 .button-detail {
     background-color: #e4214c;
     color: white;

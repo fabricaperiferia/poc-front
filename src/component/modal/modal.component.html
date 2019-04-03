@@ -1,17 +1,34 @@
-<p (click)="cancelParam()">
-  modal works!
-</p>
-<h1 class="init-text">- Lista de pedidos-</h1>
-<ion-list>
+<button (click)="cancelParam()" *ngIf="detailList.length !== 0">
+  Regresar
+</button>
+<h1 class="init-text" *ngIf="detailList.length === 0">- Lista de pedidos-</h1>
+<ion-list *ngIf="detailList.length === 0">
   <ion-item *ngFor="let product of productList">
     <ion-label> Cantidad productos: {{product.detail.length}}</ion-label>
     <ion-label class="date">Fecha: {{product.creation}}</ion-label>
 
     <ion-label>
-      <button class="button-detail">
+      <button class="button-detail" (click)="detailProduct(product)">
         <ion-icon name="arrow-round-forward"></ion-icon>
         Ver detalle
       </button>
     </ion-label>
   </ion-item>
 </ion-list>
+
+<ion-list *ngIf="detailList.length !== 0" class="content-detail">
+    <ion-card class="card" *ngFor="let listProduct of detailList.detail" >
+        <ion-card-header>
+          <img src={{listProduct.image}} />
+          <ion-card-subtitle class="title">{{listProduct.description}}</ion-card-subtitle>
+          <ion-card-title class="title">{{listProduct.name}}</ion-card-title>
+        </ion-card-header>
+  
+        <ion-card-content>
+          <p><strong>Categoria:</strong>{{listProduct.category}}</p>
+          <p><strong>Precio:</strong>${{listProduct.price}}</p>
+          <p><strong>Presentación:</strong>{{listProduct.presentation}}</p>
+          <p><strong>Cantidad:</strong>{{listProduct.quantity}}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>

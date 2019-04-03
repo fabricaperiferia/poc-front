@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController,NavController} from '@ionic/angular';
 
 import { CarService } from '../../service/caring.service';
 
@@ -10,8 +10,8 @@ import { CarService } from '../../service/caring.service';
 })
 export class ModalComponent implements OnInit {
   productList: Array<any> = [];
-
-  constructor(public carSrv: CarService,public modalCtrl: ModalController) { }
+   detailList:Array<any> = [];
+  constructor(public carSrv: CarService,public modalCtrl: ModalController,public navCtrl:NavController) { }
 
   ngOnInit() {
     this.carSrv.findAll().then(response => {
@@ -25,6 +25,10 @@ export class ModalComponent implements OnInit {
   cancelParam(){
     console.log('entro')
     this.modalCtrl.dismiss()
+  }
+  detailProduct(product){
+    this.detailList = product;
+    console.log(product)
   }
 
 }
