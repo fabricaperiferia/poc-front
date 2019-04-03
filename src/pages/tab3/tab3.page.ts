@@ -44,11 +44,12 @@ export class Tab3Page {
 
 
   /**
-  @description:Se consume el servicio quien guardara el pedido
+  @description :Se consume el servicio quien guardara el pedido
   **/
   add() {
     let sendParams: any = []
     this.productList.map(product => {
+      console.log(product)
       sendParams.push({
         productId: product.infoItem._id,
         price: product.infoItem.precio,
@@ -73,6 +74,11 @@ export class Tab3Page {
   @description:Modal que lista los pedidos realizados por el usuario 
   **/
   async listOrders() {
+    this.carSrv.findAll().then(response => {
+        console.log(response)
+    }).catch(err => {
+       console.log(err)
+    })
     const modal = await this.modalCtrl.create({
       component: ModalComponent
     });

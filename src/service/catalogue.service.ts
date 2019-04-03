@@ -9,11 +9,11 @@ export class CatalogueService {
   ) {}
 
   findAll(): Promise<any> {
-    return this._http.get('http://localhost:3000/catalogue').toPromise()
+    return this._http.get('http://172.168.10.52:32647/catalogue').toPromise()
   }
 
   findFilter(value:any): Promise<any> {
-    return this._http.get(`http://localhost:3000/catalogue/${value}`).toPromise()
+    return this._http.get(`'http://172.168.10.52:32647/catalogue/${value}`).toPromise()
   }
 
 }
