@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { CarService } from '../../service/caring.service';
 import { ModalController } from '@ionic/angular';
+
 import { ModalComponent } from '../../component/modal/modal.component';
 
+import { CarService } from '../../service/caring.service';
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
@@ -12,8 +13,6 @@ export class Tab3Page {
 
   productList: Array<any> = [];
 
-
-  
   /**
   @description:Constructor
   **/
@@ -74,11 +73,6 @@ export class Tab3Page {
   @description:Modal que lista los pedidos realizados por el usuario 
   **/
   async listOrders() {
-    this.carSrv.findAll().then(response => {
-        console.log(response)
-    }).catch(err => {
-       console.log(err)
-    })
     const modal = await this.modalCtrl.create({
       component: ModalComponent
     });
