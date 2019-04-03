@@ -2,7 +2,17 @@
     width: 100%;
     overflow: scroll;
 }
-
+.div{
+    display: flex;
+    height: 37%;
+}
+.div-detail{
+    display: flex;
+    height: 17%;
+}
+.icon{
+    font-size: 2em;
+}
 .modal-wrapper {
     border-radius: 1em;
 }
@@ -16,6 +26,7 @@
 
 .card {
     width: 70%;
+    margin: 3% auto;
     border-radius: 4%;
 }
 
@@ -33,4 +44,11 @@
     text-transform: uppercase;
     transition: 0.3s color linear, 0.3s background linear, 0.3s border linear;
     line-height: 16px;
+}
+.button-back{
+    font-size: 1em;
+    margin: 13px 24px 0;
+}
+.image-content{
+    height: 190px;
 }

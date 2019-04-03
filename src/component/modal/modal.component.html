@@ -1,7 +1,17 @@
-<button (click)="cancelParam()" *ngIf="detailList.length !== 0">
-  Regresar
+<div *ngIf="detailList.length === 0" class="div">
+<button ion-button  class="button-back" (click)="cancelParam()">
+    <ion-icon class="icon" name="arrow-back"></ion-icon>
 </button>
-<h1 class="init-text" *ngIf="detailList.length === 0">- Lista de pedidos-</h1>
+<h1 class="init-text">- Lista de pedidos -</h1>
+</div>
+
+<div *ngIf="detailList.length !== 0" class="div-detail">
+  <button ion-button class="button-back" (click)="deleteParams()">
+    <ion-icon class="icon" name="arrow-back"></ion-icon>
+  </button>
+  <h1 class="init-text">- Detalle del producto -</h1>
+</div>
+
 <ion-list *ngIf="detailList.length === 0">
   <ion-item *ngFor="let product of productList">
     <ion-label> Cantidad productos: {{product.detail.length}}</ion-label>
@@ -19,7 +29,7 @@
 <ion-list *ngIf="detailList.length !== 0" class="content-detail">
     <ion-card class="card" *ngFor="let listProduct of detailList.detail" >
         <ion-card-header>
-          <img src={{listProduct.image}} />
+          <img src={{listProduct.image}} class="image-content" />
           <ion-card-subtitle class="title">{{listProduct.description}}</ion-card-subtitle>
           <ion-card-title class="title">{{listProduct.name}}</ion-card-title>
         </ion-card-header>

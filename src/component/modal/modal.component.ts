@@ -23,12 +23,14 @@ export class ModalComponent implements OnInit {
   }
 
   cancelParam(){
-    console.log('entro')
     this.modalCtrl.dismiss()
   }
   detailProduct(product){
     this.detailList = product;
-    console.log(product)
+  }
+
+  deleteParams(){
+    this.detailList = []
   }
 
 }
