@@ -22,7 +22,7 @@ findAll(): Promise<any> {
  let options = {
    headers:this.authTokenHeaders()
  };
-  return this._http.post('http://localhost:9000/orders/user',value,options).toPromise()
+  return this._http.post(`${process.env.pedidos}:31204/orders/user`,value,options).toPromise()
 }
 
   saveSale(Params): Promise<any> {
@@ -34,7 +34,7 @@ findAll(): Promise<any> {
     let options = {
       headers:this.authTokenHeaders()
     };
-    return this._http.post('http://localhost:9000/orders/checkout',value,options).toPromise()
+    return this._http.post(`${process.env.pedidos}:31204/orders/checkout`,value,options).toPromise()
   }
 
 }
