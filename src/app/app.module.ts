@@ -13,13 +13,16 @@ import {CarService} from '../service/caring.service'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {NavbarComponent} from '../component/navbar/navbar.component'
+import { NavbarComponent } from '../component/navbar/navbar.component'
+import { ModalComponent } from '../component/modal/modal.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent],
-  entryComponents: [],
+    NavbarComponent,
+    ModalComponent
+  ],
+  entryComponents: [ModalComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule],
   providers: [
     StatusBar,

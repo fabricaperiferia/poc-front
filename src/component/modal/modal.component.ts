@@ -1,16 +1,14 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'modal',
-  templateUrl: 'modal.component.html',
-  styleUrls: ['modal.component.scss'],
+  selector: 'app-modal',
+  templateUrl: './modal.component.html',
+  styleUrls: ['./modal.component.scss'],
 })
+export class ModalComponent implements OnInit {
 
-export class ModalComponent {
-  
-  constructor(public router: Router) {
-  }
+  constructor() { }
+
+  ngOnInit() {}
 
 }
