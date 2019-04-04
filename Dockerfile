@@ -12,6 +12,8 @@ RUN npm i @types/node
 
 USER node
 
+#RUN npm test
+
 RUN npm install
 
 COPY --chown=node:node . .
