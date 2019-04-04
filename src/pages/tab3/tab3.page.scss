@@ -70,3 +70,30 @@
 .button-clip{
     height: 50px;
 }
+
+//Media
+@media screen and (max-width:740px) {
+.init-text{
+    font-size: 2em;
+}
+.hydrated{
+    display: flex;
+    flex-flow: wrap-reverse;
+}
+.second-text{
+    font-size: 1.4em;
+}
+.button-clip{
+    width: 100%;
+}
+.list{
+    width: 100%;
+    margin:2% 0; 
+}
+.text{
+    display: none;
+}
+.cancel-button{
+    height: 77%;
+}
+	}

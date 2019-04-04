@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, ToastController} from '@ionic/angular';
 
 import { ModalComponent } from '../../component/modal/modal.component';
 
@@ -16,7 +16,7 @@ export class Tab3Page {
   /**
   @description:Constructor
   **/
-  constructor(public carSrv: CarService, public modalCtrl: ModalController) {
+  constructor(public carSrv: CarService, public modalCtrl: ModalController,public toastCtrl:ToastController) {
 
   }
 
@@ -45,8 +45,12 @@ export class Tab3Page {
   /**
   @description :Se consume el servicio quien guardara el pedido
   **/
-  add() {
+  async add() {
     let sendParams: any = []
+    const toast = await this.toastCtrl.create({
+      message: 'Se agrego el respectivo pedido',
+      duration: 2000
+    });
     this.productList.map(product => {
       console.log(product)
       sendParams.push({
@@ -61,7 +65,9 @@ export class Tab3Page {
       })
     })
     this.carSrv.saveSale(sendParams).then(response => {
-      console.log(response)
+      toast.present();
+      localStorage.getItem("catalogueItems",)
+      this.productList = [];
     }).catch(err => {
       console.log(err)
     })

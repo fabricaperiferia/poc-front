@@ -2,11 +2,11 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const environment = {
-  catalogo:'http://catalogo-service:32647',
-  pedidos:'http://pedidos-service:31204',
-autenticacion:'http://oauth-service:30144'
-};
+// export const environment = {
+//   catalogo:'http://catalogo-service:32647',
+//   pedidos:'http://pedidos-service:31204',
+// autenticacion:'http://oauth-service:30144'
+// };
 
 
 // export const environment = {
@@ -16,12 +16,17 @@ autenticacion:'http://oauth-service:30144'
 // };
 
 
+export const environment = {
+  catalogo:'http://localhost:3000',
+  pedidos:'http://172.16.20.155:9000',
+autenticacion:'http://localhost:8080'
+};
+
 // export const environment = {
-//   catalogo:'http://localhost::3000',
+//   catalogo:'http://localhost:3000',
 //   pedidos:'http://localhost:9000',
 // autenticacion:'http://localhost:8080'
 // };
-
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

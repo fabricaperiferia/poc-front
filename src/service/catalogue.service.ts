@@ -11,6 +11,7 @@ export class CatalogueService {
   ) {}
 
   findAll(): Promise<any> {
+    console.log(environment.catalogo)
     return this._http.get(`${environment.catalogo}/catalogue`).toPromise()
   }
 
