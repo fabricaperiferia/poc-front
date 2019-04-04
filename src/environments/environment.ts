@@ -8,6 +8,20 @@ export const environment = {
 autenticacion:'http://oauth-service:30144'
 };
 
+
+// export const environment = {
+//   catalogo:'http://172.168.10.52:32647',
+//   pedidos:'http://172.168.10.52:31204',
+// autenticacion:'http://172.168.10.52:30144'
+// };
+
+
+// export const environment = {
+//   catalogo:'http://localhost::3000',
+//   pedidos:'http://localhost:9000',
+// autenticacion:'http://localhost:8080'
+// };
+
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
