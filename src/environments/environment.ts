@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  catalogo:'http://catalogo-service:32647',
+  pedidos:'http://pedidos-service:31204',
+autenticacion:'http://oauth-service:30144'
 };
 
 /*

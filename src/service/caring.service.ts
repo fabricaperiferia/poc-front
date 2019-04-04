@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 
+import  { environment } from '../environments/environment' 
 
 @Injectable()
 export class CarService {
@@ -22,7 +23,7 @@ findAll(): Promise<any> {
  let options = {
    headers:this.authTokenHeaders()
  };
-  return this._http.post(`${process.env.pedidos}:31204/orders/user`,value,options).toPromise()
+  return this._http.post(`${environment.pedidos}/orders/user`,value,options).toPromise()
 }
 
   saveSale(Params): Promise<any> {
@@ -34,7 +35,7 @@ findAll(): Promise<any> {
     let options = {
       headers:this.authTokenHeaders()
     };
-    return this._http.post(`${process.env.pedidos}:31204/orders/checkout`,value,options).toPromise()
+    return this._http.post(`${environment.pedidos}/orders/checkout`,value,options).toPromise()
   }
 
 }

@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 
+
+import  { environment } from '../environments/environment' 
 @Injectable()
 export class CatalogueService {
 
@@ -9,11 +11,11 @@ export class CatalogueService {
   ) {}
 
   findAll(): Promise<any> {
-    return this._http.get(`${process.env.catalogo}:32647/catalogue`).toPromise()
+    return this._http.get(`${environment.catalogo}/catalogue`).toPromise()
   }
 
   findFilter(value:any): Promise<any> {
-    return this._http.get(`${process.env.catalogo}:32647/catalogue/${value}`).toPromise()
+    return this._http.get(`${environment.catalogo}/catalogue/${value}`).toPromise()
   }
 
 }

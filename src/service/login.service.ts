@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Injectable } from '@angular/core'
-import axios from "axios";
 
+import  { environment } from '../environments/environment' 
 @Injectable()
 export class LoginService {
 
@@ -23,7 +23,7 @@ export class LoginService {
     let options = {
       headers:this.authHeaders()
     };
-    return this._http.post(`${process.env.autenticacion}/oauth/token`, bodyFormData, options).toPromise()
+    return this._http.post(`${environment.autenticacion}/oauth/token`, bodyFormData, options).toPromise()
   }
 
 }
