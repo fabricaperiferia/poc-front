@@ -2,18 +2,18 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const environment = {
-  catalogo:'http://catalogo-service:3000',
-  pedidos:'http://pedidos-service:9000',
-autenticacion:'http://oauth-service:8080'
-};
-
-
 // export const environment = {
-//   catalogo:'http://172.168.10.52:32647',
-//   pedidos:'http://172.168.10.52:31204',
-// autenticacion:'http://172.168.10.52:30144'
+//   catalogo:'http://catalogo-service:3000',
+//   pedidos:'http://pedidos-service:9000',
+// autenticacion:'http://oauth-service:8080'
 // };
+
+
+export const environment = {
+  catalogo:'http://172.168.10.52:3000',
+  pedidos:'http://172.168.10.52:9000',
+autenticacion:'http://172.168.10.52:8080'
+};
 
 
 // export const environment = {
