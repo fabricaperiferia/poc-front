@@ -20,4 +20,9 @@ import { TabsPageRoutingModule } from './tabs.router.module';
   templateUrl: 'tabs.page.html',
   styleUrls: ['tabs.page.scss']
 })
-export class TabsPage {}
+export class TabsPage {
+
+  ngOnInit(){
+  console.log("ENTRO") 
+  }
+}

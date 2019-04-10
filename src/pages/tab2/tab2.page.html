@@ -11,16 +11,17 @@
       </ion-card-header>
 
       <ion-card-content>
-        <p><strong>Categoria:</strong>{{catalogue.categoria}}</p>
-        <p><strong>Precio:</strong>${{catalogue.precio}}</p>
-        <p><strong>Presentación:</strong>{{catalogue.presentacion}}</p>
-        <ion-item>
+        <p><strong>Categoria:</strong> {{catalogue.categoria}}</p>
+        <p><strong>Precio:</strong> ${{catalogue.precio}}</p>
+        <p><strong>Presentación:</strong> {{catalogue.presentacion}}</p>
+        <p><strong>Cantidad:</strong> {{catalogue.cantidad}}</p>
+        <ion-item *ngIf="catalogue.cantidad !== 0">
           <ion-range min="1" max="20" pin="true" value="1" [(ngModel)]="catalogue.valueRange" color="secondary">
             <ion-label slot="start">1</ion-label>
             <ion-label slot="end">20</ion-label>
           </ion-range>
         </ion-item>
-        <button class="button" (click)="addVal(catalogue, catalogue.valueRange)">
+        <button *ngIf="catalogue.cantidad !== 0" class="button" (click)="addVal(catalogue, catalogue.valueRange)">
           Agregar al carrito
           <div class="button__horizontal"></div>
           <div class="button__vertical"></div>

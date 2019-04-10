@@ -20,8 +20,11 @@ export class Tab2Page {
     /**
     @description Se listá los valores iniciales del catalogo
     **/
-    async ngOnInit() {
-        console.log('entro')
+
+    /**
+        @description: Se ejecuta cada vez que se muestra la vista. decodifica lo almacenado en localStorage
+        **/
+    async ionViewWillEnter() {
         const loading = await this.loadingCtrl.create({
             message: 'Cargando ...',
             spinner: 'dots',
@@ -33,7 +36,6 @@ export class Tab2Page {
             this.catalogueList = response.product
         }).catch(err => {
             loading.dismiss();
-            console.log(err)
         })
     }
 
@@ -63,6 +65,9 @@ export class Tab2Page {
         toast.present();
         if (localStorage.getItem("catalogueItems") === "W10=") {
             this.localStorageValue = []
+        }
+        else {
+            this.localStorageValue = JSON.parse(atob(localStorage.getItem("catalogueItems")))
         }
 
         this.localStorageValue.push({
