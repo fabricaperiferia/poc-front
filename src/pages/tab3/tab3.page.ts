@@ -52,7 +52,6 @@ export class Tab3Page {
       duration: 2000
     });
     this.productList.map(product => {
-      console.log(product)
       sendParams.push({
         productId: product.infoItem._id,
         price: product.infoItem.precio,
@@ -64,6 +63,7 @@ export class Tab3Page {
         image: product.infoItem.imagen,
       })
     })
+
     this.carSrv.saveSale(sendParams).then(response => {
       toast.present();
       localStorage.getItem("catalogueItems",)

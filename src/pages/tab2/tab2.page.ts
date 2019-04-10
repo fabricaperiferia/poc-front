@@ -10,11 +10,11 @@ import { LoadingController, AlertController,ToastController } from '@ionic/angul
 export class Tab2Page {
     catalogueList: Array<any> = [];
     searchTerm: String;
-    localStorageValue: Array<any> = [];
+    localStorageValue: any = [];
 
     constructor(public catServ: CatalogueService, public loadingCtrl: LoadingController,
         public alertCtrl:AlertController,public toastCtrl:ToastController) {
-
+         
     }
 
     /**
@@ -54,17 +54,23 @@ export class Tab2Page {
      * @param {number}second: Cantidad de veces que se desea el producto
      * @description Se agrega valores para agregar un nuevo producto a localStorage 
     */
-   async addVal(value, second) {
-    const toast = await this.toastCtrl.create({
-        message: 'Se agrego producto al carrito de compra.',
-        duration: 2000
-      });
-      toast.present();
+    async addVal(value, second) {
+        const toast = await this.toastCtrl.create({
+            message: 'Se agrego producto al carrito de compra.',
+            duration: 2000
+        });
+
+        toast.present();
+        if (localStorage.getItem("catalogueItems") === "W10=") {
+            this.localStorageValue = []
+        }
+
         this.localStorageValue.push({
             infoItem: value,
             totalItems: second === undefined ? 1 : second,
             totalValueItems: second === undefined ? value.precio : value.precio * second
         })
+
         localStorage.setItem("catalogueItems", btoa(JSON.stringify(this.localStorageValue)))
         toast.present();
     }
