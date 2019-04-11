@@ -16,9 +16,9 @@
         <p><strong>Presentación:</strong> {{catalogue.presentacion}}</p>
         <p><strong>Cantidad:</strong> {{catalogue.cantidad}}</p>
         <ion-item *ngIf="catalogue.cantidad !== 0">
-          <ion-range min="1" max="20" pin="true" value="1" [(ngModel)]="catalogue.valueRange" color="secondary">
+          <ion-range min="1" max="{{catalogue.cantidad}}" pin="true" value="1" [(ngModel)]="catalogue.valueRange" color="secondary">
             <ion-label slot="start">1</ion-label>
-            <ion-label slot="end">20</ion-label>
+            <ion-label slot="end">{{catalogue.cantidad}}</ion-label>
           </ion-range>
         </ion-item>
         <button *ngIf="catalogue.cantidad !== 0" class="button" (click)="addVal(catalogue, catalogue.valueRange)">
@@ -26,6 +26,10 @@
           <div class="button__horizontal"></div>
           <div class="button__vertical"></div>
         </button>
+
+        <ion-item *ngIf="catalogue.cantidad === 0">
+          <p>Producto agotado</p>
+        </ion-item>
       </ion-card-content>
     </ion-card>
   </div>

@@ -10,8 +10,13 @@ export class CatalogueService {
     private _http: HttpClient
   ) {}
 
+  authTokenHeaders() {
+    return {
+       "Content-type":"application/json",
+    }
+}
+
   findAll(): Promise<any> {
-    console.log(environment.catalogo)
     return this._http.get(`${environment.catalogo}/catalogue`).toPromise()
   }
 
@@ -19,4 +24,12 @@ export class CatalogueService {
     return this._http.get(`${environment.catalogo}/catalogue/${value}`).toPromise()
   }
 
-}
+  changeQuantity(params):Promise<any>{
+    let options = {
+      headers:this.authTokenHeaders()
+    };
+    console.log(params)
+    return this._http.post(`${environment.catalogo}/catalogue/change`,{"productos":params},options).toPromise()
+  }
+  }
+
