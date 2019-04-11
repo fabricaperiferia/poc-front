@@ -27,19 +27,6 @@ export class FormLoginComponent {
       spinner: 'dots',
       cssClass: 'loading-generic',
     });
-    const alert = await this.alertCtrl.create({
-      header: 'Bienvenido ',
-      message: 'Ingresa y disfruta de nuestro sitio ',
-      cssClass: 'alert',
-      buttons: [
-        {
-          text: 'Continuar',
-          handler: () => {
-            this.router.navigateByUrl(`o`);
-          }
-        }
-      ]
-    });
 
     const alertError = await this.alertCtrl.create({
       header: 'Usuario o contraseña invalido ',
@@ -55,15 +42,32 @@ export class FormLoginComponent {
         }
       ]
     });
+
+    const alertError404 = await this.alertCtrl.create({
+      header: 'No tienes conexión a nuestros servicios ',
+      message: 'Intentalo más tarde o comunicate con nosotros. Estamos para ayudarte',
+      cssClass: 'alert',
+      buttons: [
+        {
+          text: 'Continuar',
+          handler: () => {
+          }
+        }
+      ]
+    });
     loading.present();
     this.loginSrv.login(this.user).then(response => {
       localStorage.setItem('token',response.access_token);
+      this.router.navigateByUrl(`o`);
       loading.dismiss();
-      alert.present();
     }).catch(err => {
-      console.log(err)
-      loading.dismiss();
+      if(err.statusText == "Unknown Error"){
+        alertError404.present();
+      }
+      else {
       alertError.present();
+      }
+      loading.dismiss();
     })
   }
 }
