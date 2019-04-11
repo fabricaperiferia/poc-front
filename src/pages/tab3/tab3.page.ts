@@ -90,16 +90,17 @@ export class Tab3Page {
       cssClass: 'loading-generic',
   });
   loading.present()
-    this.catalogueServ.changeQuantity(productos).then(response => {
-      this.carSrv.saveSale(sendParams).then(response => {
+  this.carSrv.saveSale(sendParams).then(response => {
+        this.catalogueServ.changeQuantity(productos).then(response => {
         toast.present();
         loading.dismiss();
-        localStorage.setItem("catalogueItems",null)
+        localStorage.setItem("catalogueItems","W10=")
         this.productList = [];
       }).catch(err => {
         loading.dismiss();
-        console.log(err)
       })
+    }).catch(err => {
+      loading.dismiss();
     })
    }
 

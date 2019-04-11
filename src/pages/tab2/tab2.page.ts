@@ -120,6 +120,7 @@ export class Tab2Page {
                 this.localStorageValue = sendStorage;
             }
             else {
+                console.log(value.precio , second)
                 this.localStorageValue.push({
                     infoItem: value,
                     totalItems: second,

@@ -1,13 +1,13 @@
 <ion-content>
   <h1 class="init-text">- Catálogo -</h1>
-  <ion-item class="filter-element">
-  <ion-select placeholder="Buscar categoria" (ionChange)="onChange($event)">
+  <div class="filter-element">
+  <ion-select class="selected-items" placeholder="Buscar categoria" (ionChange)="onChange($event)">
     <ion-select-option value="Belleza">Belleza</ion-select-option>
     <ion-select-option value="cuidado personal">Cuidado personal</ion-select-option>
   </ion-select>
 <ion-searchbar class="search-bar" placeholder="Buscar producto (Nombre,categoria,precio,presentación)" [(ngModel)]="searchTerm"
     showCancelButton="true" animated="true" (ionChange)="filterItems()"></ion-searchbar>
-  </ion-item>
+</div>
   <div class="content-catalogue">
     <ion-card class="card" *ngFor="let catalogue of catalogueList">
       <ion-card-header>

@@ -17,11 +17,15 @@
     width: 78%;
     margin: 0 auto;
   }
- 
-  .filter-element{
-	  width: 70%;
-	  margin: 0 auto;
-  }
+  .filter-element {
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.selected-items {
+    padding: 19px 0 0;
+}
   //botones 
   .button {
 	
