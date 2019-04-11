@@ -82,7 +82,7 @@ export class Tab2Page {
         });
 
         toast.present();
-        if (localStorage.getItem("catalogueItems") === "W10=") {
+        if (localStorage.getItem("catalogueItems") === "W10=" || localStorage.getItem("catalogueItems") === null) {
             this.localStorageValue = []
         }
         else {
