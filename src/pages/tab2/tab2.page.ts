@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CatalogueService } from '../../service/catalogue.service'
-import { LoadingController, AlertController,ToastController } from '@ionic/angular';
+import { LoadingController, AlertController, ToastController } from '@ionic/angular';
 
 @Component({
     selector: 'app-tab2',
@@ -13,13 +13,9 @@ export class Tab2Page {
     localStorageValue: any = [];
 
     constructor(public catServ: CatalogueService, public loadingCtrl: LoadingController,
-        public alertCtrl:AlertController,public toastCtrl:ToastController) {
-         
-    }
+        public alertCtrl: AlertController, public toastCtrl: ToastController) {
 
-    /**
-    @description Se listá los valores iniciales del catalogo
-    **/
+    }
 
     /**
         @description: Se ejecuta cada vez que se muestra la vista. decodifica lo almacenado en localStorage
@@ -39,9 +35,9 @@ export class Tab2Page {
         })
     }
 
-  /**
-   * @description  Filtra por valores del item
-  */
+    /**
+     * @description  Filtra por valores del item
+    */
 
     async filterItems() {
         this.catServ.findFilter(this.searchTerm).then(response => {
@@ -57,6 +53,7 @@ export class Tab2Page {
      * @description Se agrega valores para agregar un nuevo producto a localStorage 
     */
     async addVal(value, second) {
+        second = second === undefined ? 1 : second
         const toast = await this.toastCtrl.create({
             message: 'Se agrego producto al carrito de compra.',
             duration: 2000
@@ -69,6 +66,9 @@ export class Tab2Page {
         else {
             this.localStorageValue = JSON.parse(atob(localStorage.getItem("catalogueItems")))
         }
+        this.catalogueList.forEach(element => {
+            element.cantidad = value._id === element._id ? element.cantidad - second : element.cantidad
+        });
 
         this.localStorageValue.push({
             infoItem: value,
