@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CatalogueService } from '../../service/catalogue.service'
 import { LoadingController, AlertController, ToastController } from '@ionic/angular';
 
+
 @Component({
     selector: 'app-tab2',
     templateUrl: 'tab2.page.html',
@@ -52,7 +53,7 @@ export class Tab2Page {
         }).catch(err => {
             loading.dismiss();
         })
-    }
+   }
 
     /**
      * @description  Filtra por valores del item
@@ -120,7 +121,7 @@ export class Tab2Page {
                 this.localStorageValue = sendStorage;
             }
             else {
-                console.log(value.precio , second)
+                console.log(value.precio * second)
                 this.localStorageValue.push({
                     infoItem: value,
                     totalItems: second,
