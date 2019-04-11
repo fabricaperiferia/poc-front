@@ -21,12 +21,12 @@ findAll(): Promise<any> {
  let options = {
    headers:this.authTokenHeaders()
  };
-  return this._http.post(`${environment.pedidos}/orders/user`, "5ca2872df6b2639cae653f9f",options).toPromise()
+  return this._http.post(`${environment.pedidos}/orders/user`, "usuarioid",options).toPromise()
 }
 
   saveSale(Params): Promise<any> {
     let value = {
-      userId:"5ca2872df6b2639cae653f9f",
+      userId:"usuarioid",
        creation:new Date(),
        detail:Params
     }
