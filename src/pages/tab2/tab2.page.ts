@@ -54,9 +54,15 @@ export class Tab2Page {
     */
     async addVal(value, second) {
         second = second === undefined ? 1 : second
+        let quantityCompliance = false
+
         const toast = await this.toastCtrl.create({
             message: 'Se agrego producto al carrito de compra.',
             duration: 2000
+        });
+        const toastError = await this.toastCtrl.create({
+            message: 'Lo sentimos no contamos con la cantidad de productos, para tu necesidad',
+            duration: 4000
         });
 
         toast.present();
@@ -67,16 +73,26 @@ export class Tab2Page {
             this.localStorageValue = JSON.parse(atob(localStorage.getItem("catalogueItems")))
         }
         this.catalogueList.forEach(element => {
-            element.cantidad = value._id === element._id ? element.cantidad - second : element.cantidad
+            if (value._id === element._id) {
+                if (second <= element.cantidad) {
+                    element.cantidad =  element.cantidad - second 
+                    quantityCompliance = true
+                }
+                else {
+                    toastError.present()
+                    quantityCompliance = false
+                }
+            }
         });
+        if (quantityCompliance) {
+            this.localStorageValue.push({
+                infoItem: value,
+                totalItems: second === undefined ? 1 : second,
+                totalValueItems: second === undefined ? value.precio : value.precio * second
+            })
 
-        this.localStorageValue.push({
-            infoItem: value,
-            totalItems: second === undefined ? 1 : second,
-            totalValueItems: second === undefined ? value.precio : value.precio * second
-        })
-
-        localStorage.setItem("catalogueItems", btoa(JSON.stringify(this.localStorageValue)))
-        toast.present();
+            localStorage.setItem("catalogueItems", btoa(JSON.stringify(this.localStorageValue)))
+            toast.present();
+        }
     }
 }
