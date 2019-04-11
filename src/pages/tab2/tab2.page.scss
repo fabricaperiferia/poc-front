@@ -122,7 +122,11 @@
 
 //Media
 @media screen and (max-width:740px) {
+	.selected-items{
+		display: none;
+	}
 	.content-catalogue{
+		margin: 0 26px;
 	  flex-direction: column
 	}
 	.card{
@@ -131,6 +135,13 @@
 	  margin: 4% auto;
 	}
 	.search-bar{
-		width: 80%;
+		width: 100%;
+	}
+	.filter-element{
+		width: 100%;
+		margin: 0%
+	}
+	.button{
+		margin: 3% auto;
 	}
 	}

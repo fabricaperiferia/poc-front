@@ -37,6 +37,7 @@
     cursor: pointer;
 }
 .cancel-button{
+    background-color: transparent;
     height: 57%;
     font-size: 1em;
 }
@@ -74,7 +75,9 @@
 //Media
 @media screen and (max-width:740px) {
 .init-text{
-    font-size: 2em;
+    font-size: 2em !important;
+    margin-bottom: 24px;
+
 }
 .header{
     display: flex;
@@ -93,7 +96,12 @@
 .text{
     display: none;
 }
+.title{
+    width: 50%;
+}
 .cancel-button{
-    height: 77%;
+    background-color: transparent;
+    width:34%;
+    height: 80%;
 }
 	}
