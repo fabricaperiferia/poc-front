@@ -8,9 +8,11 @@ import { LoadingController, AlertController, ToastController } from '@ionic/angu
     styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+    
     catalogueList: Array<any>=[];
     searchTerm: String;
     localStorageValue: any = [];
+    valueSelect:String;
 
     constructor(public catServ: CatalogueService, public loadingCtrl: LoadingController,
         public alertCtrl: AlertController, public toastCtrl: ToastController) {
@@ -29,13 +31,15 @@ export class Tab2Page {
         });
         loading.present();
         this.catServ.findAll().then(response => {
+            response = JSON.parse(atob(response.product.split('.')[1]))
             loading.dismiss();
             let storageLocal = localStorage.getItem("catalogueItems") !== null ?
             JSON.parse(atob(localStorage.getItem("catalogueItems")))
             :
             []
+            
             if (storageLocal.length !== 0) {
-                response.product.map(value => {
+                response.map(value => {
                     let responseFinal = storageLocal.find(valueCatalogue => valueCatalogue.infoItem._id === value._id) !== undefined
                         ? storageLocal.find(valueCatalogue => valueCatalogue.infoItem._id === value._id).infoItem : value
                     valueFinal.push(responseFinal)
@@ -43,8 +47,7 @@ export class Tab2Page {
                 this.catalogueList = valueFinal
             }
             else {
-                console.log(response.product)
-                this.catalogueList = response.product
+                this.catalogueList = response
             }
         }).catch(err => {
             loading.dismiss();
@@ -57,7 +60,7 @@ export class Tab2Page {
 
     async filterItems() {
         this.catServ.findFilter(this.searchTerm).then(response => {
-            this.catalogueList = response.product
+            this.catalogueList = JSON.parse(atob(response.product.split('.')[1]))
         }).catch(err => {
             console.log(err)
         })
@@ -127,4 +130,13 @@ export class Tab2Page {
             toast.present();
         }
     }
+
+
+    onChange($event){
+        this.catServ.findFilter($event.target.value).then(response => {
+            this.catalogueList = JSON.parse(atob(response.product.split('.')[1]))
+        }).catch(err => {
+            console.log(err)
+        })
+        }
 }

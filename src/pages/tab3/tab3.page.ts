@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalController, ToastController} from '@ionic/angular';
+import { ModalController, ToastController,LoadingController} from '@ionic/angular';
 
 import { ModalComponent } from '../../component/modal/modal.component';
 
@@ -21,7 +21,8 @@ export class Tab3Page {
   constructor(   public carSrv: CarService, 
                  public modalCtrl: ModalController,
                 public toastCtrl:ToastController,
-                public catalogueServ:CatalogueService) {
+                public catalogueServ:CatalogueService,
+                public loadingCtrl:LoadingController) {
 
   }
 
@@ -83,16 +84,24 @@ export class Tab3Page {
         "cantidadVendido":product.totalItems
       })
     })
+    const loading = await this.loadingCtrl.create({
+      message: 'Generando pedido ...',
+      spinner: 'dots',
+      cssClass: 'loading-generic',
+  });
+  loading.present()
     this.catalogueServ.changeQuantity(productos).then(response => {
       this.carSrv.saveSale(sendParams).then(response => {
         toast.present();
-        localStorage.getItem("catalogueItems",)
+        loading.dismiss();
+        localStorage.setItem("catalogueItems",null)
         this.productList = [];
       }).catch(err => {
+        loading.dismiss();
         console.log(err)
       })
     })
-  }
+   }
 
 
 
