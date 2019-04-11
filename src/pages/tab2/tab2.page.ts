@@ -30,7 +30,10 @@ export class Tab2Page {
         loading.present();
         this.catServ.findAll().then(response => {
             loading.dismiss();
-            let storageLocal = JSON.parse(atob(localStorage.getItem("catalogueItems")))
+            let storageLocal = localStorage.getItem("catalogueItems") !== null ?
+            JSON.parse(atob(localStorage.getItem("catalogueItems")))
+            :
+            []
             if (storageLocal.length !== 0) {
                 response.product.map(value => {
                     let responseFinal = storageLocal.find(valueCatalogue => valueCatalogue.infoItem._id === value._id) !== undefined
@@ -40,6 +43,7 @@ export class Tab2Page {
                 this.catalogueList = valueFinal
             }
             else {
+                console.log(response.product)
                 this.catalogueList = response.product
             }
         }).catch(err => {
