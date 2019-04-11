@@ -38,3 +38,21 @@
   border: 1px solid #e21c487a;
   color: white;
 }
+
+//Media
+@media screen and (max-width:740px) {
+  .button-form{
+    width: 95%;
+    margin: 3%;
+  }
+  .form{
+    background-color: #ffffff4f;
+    width: 94%;
+    margin: auto;
+    height: 40%;
+    border-radius: 5px;
+  }
+  .item{
+    padding: 10px 0 0 ;
+  }
+}
