@@ -49,7 +49,7 @@ export class FormLoginComponent {
         {
           text: 'Continuar',
           handler: () => {
-            this.router.navigateByUrl(`o`);
+            // this.router.navigateByUrl(`o`);
             
           }
         }

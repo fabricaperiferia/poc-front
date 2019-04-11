@@ -8,7 +8,7 @@ import { LoadingController, AlertController, ToastController } from '@ionic/angu
     styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-    catalogueList: Array<any> = [];
+    catalogueList: Array<any>=[];
     searchTerm: String;
     localStorageValue: any = [];
 
@@ -21,6 +21,7 @@ export class Tab2Page {
         @description: Se ejecuta cada vez que se muestra la vista. decodifica lo almacenado en localStorage
         **/
     async ionViewWillEnter() {
+        let valueFinal: Array<any> = [];
         const loading = await this.loadingCtrl.create({
             message: 'Cargando ...',
             spinner: 'dots',
@@ -29,7 +30,18 @@ export class Tab2Page {
         loading.present();
         this.catServ.findAll().then(response => {
             loading.dismiss();
-            this.catalogueList = response.product
+            let storageLocal = JSON.parse(atob(localStorage.getItem("catalogueItems")))
+            if (storageLocal.length !== 0) {
+                response.product.map(value => {
+                    let responseFinal = storageLocal.find(valueCatalogue => valueCatalogue.infoItem._id === value._id) !== undefined
+                        ? storageLocal.find(valueCatalogue => valueCatalogue.infoItem._id === value._id).infoItem : value
+                    valueFinal.push(responseFinal)
+                })
+                this.catalogueList = valueFinal
+            }
+            else {
+                this.catalogueList = response.product
+            }
         }).catch(err => {
             loading.dismiss();
         })
@@ -75,7 +87,7 @@ export class Tab2Page {
         this.catalogueList.forEach(element => {
             if (value._id === element._id) {
                 if (second <= element.cantidad) {
-                    element.cantidad =  element.cantidad - second 
+                    element.cantidad = element.cantidad - second
                     quantityCompliance = true
                 }
                 else {
@@ -85,12 +97,28 @@ export class Tab2Page {
             }
         });
         if (quantityCompliance) {
-            this.localStorageValue.push({
-                infoItem: value,
-                totalItems: second === undefined ? 1 : second,
-                totalValueItems: second === undefined ? value.precio : value.precio * second
-            })
-
+            if (this.localStorageValue.find(valueCatalogue => valueCatalogue.infoItem._id === value._id) !== undefined) {
+                let sendStorage: Array<any> = [];
+                this.localStorageValue.forEach(storageValue => {
+                    storageValue = storageValue.infoItem._id === value._id ?
+                        {
+                            infoItem: value,
+                            totalItems: (storageValue.totalItems + second),
+                            totalValueItems: (value.precio * second) + storageValue.totalValueItems
+                        }
+                        :
+                        storageValue
+                    sendStorage.push(storageValue)
+                })
+                this.localStorageValue = sendStorage;
+            }
+            else {
+                this.localStorageValue.push({
+                    infoItem: value,
+                    totalItems: second,
+                    totalValueItems: value.precio * second
+                })
+            }
             localStorage.setItem("catalogueItems", btoa(JSON.stringify(this.localStorageValue)))
             toast.present();
         }
