@@ -1,7 +1,9 @@
 <ion-content>
   <h1 class="init-text">- Catálogo -</h1>
   <div class="filter-element">
-  <ion-select class="selected-items" placeholder="Buscar categoria" (ionChange)="onChange($event)">
+  <ion-select class="selected-items" placeholder="Buscar categoria" (ionChange)="onChange($event)"
+  okText="Buscar" cancelText="Cancelar">
+  <ion-select-option value="">Todos los productos</ion-select-option>
     <ion-select-option value="Belleza">Belleza</ion-select-option>
     <ion-select-option value="cuidado personal">Cuidado personal</ion-select-option>
   </ion-select>
