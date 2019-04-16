@@ -9,10 +9,16 @@
 // };
 
 
+//export const environment = {
+//  catalogo:'http://172.168.10.52:32647',
+//  pedidos:'http://172.168.10.52:31204',
+//autenticacion:'http://172.168.10.52:30144'
+//};
+
 export const environment = {
-  catalogo:'http://172.168.10.52:32647',
-  pedidos:'http://172.168.10.52:31204',
-autenticacion:'http://172.168.10.52:30144'
+  catalogo:'http://181.143.149.182:32647',
+  pedidos:'http://181.143.149.182:31204',
+autenticacion:'http://181.143.149.182:30144'
 };
 
 
